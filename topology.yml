@@ -1,0 +1,21 @@
+name: pcap-lab
+hosts:
+  - name: kali
+    base_box:
+      image: kali
+      man: false
+      mgmt_protocol: SSH
+    flavor: standard.medium
+routers:
+  - name: router1
+    strongswan: false
+networks:
+  - name: lab-network
+    cidr: 10.10.30.0/24
+    accessible_by_user: true
+net_mappings:
+  - device: kali
+    network: lab-network
+router_mappings:
+  - router: router1
+    network: lab-network
