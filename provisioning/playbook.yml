@@ -1,0 +1,33 @@
+- hosts: kali
+  become: true
+  vars:
+    lab_user: "{{ ansible_user }}"
+  tasks:
+    - name: Preseed Wireshark so install does not prompt
+      debconf:
+        name: wireshark-common
+        question: wireshark-common/install-setuid
+        vtype: boolean
+        value: "false"
+
+    - name: Install Wireshark and tshark
+      apt:
+        name: [wireshark, tshark]
+        state: present
+        update_cache: true
+      environment:
+        DEBIAN_FRONTEND: noninteractive
+
+    - name: Create lab directory
+      file:
+        path: "/home/{{ lab_user }}/lab"
+        state: directory
+        owner: "{{ lab_user }}"
+        mode: "0755"
+
+    - name: Place the PCAP in the lab directory
+      get_url:
+        url: https://raw.githubusercontent.com/brocode-sys/pcap-challenges/main/webshell_intrusion.pcap
+        dest: "/home/{{ lab_user }}/lab/webshell_intrusion.pcap"
+        owner: "{{ lab_user }}"
+        mode: "0644"
