@@ -20,6 +20,7 @@ networks:
 net_mappings:
   - host: kali
     network: lab-network
+    ip: 10.10.30.10
 router_mappings:
   - router: router1
     network: lab-network
