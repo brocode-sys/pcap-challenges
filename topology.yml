@@ -4,6 +4,7 @@ hosts:
     base_box:
       image: kali
       mgmt_protocol: SSH
+    flavor: standard.small
 routers:
   - name: router1
     strongswan: false
