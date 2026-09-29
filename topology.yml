@@ -25,3 +25,4 @@ router_mappings:
   - router: router1
     network: lab-network
     ip: 10.10.30.2
+groups: []
