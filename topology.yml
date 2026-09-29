@@ -3,9 +3,7 @@ hosts:
   - name: kali
     base_box:
       image: kali
-      man: false
       mgmt_protocol: SSH
-    flavor: standard.medium
 routers:
   - name: router1
     strongswan: false
