@@ -3,7 +3,7 @@ hosts:
   - name: kali
     base_box:
       image: kali
-      mgmt_user: kali
+      mgmt_user: debian
       mgmt_protocol: SSH
     flavor: standard.small
 routers:
