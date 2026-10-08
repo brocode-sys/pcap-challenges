@@ -5,14 +5,14 @@ hosts:
       image: kali
       mgmt_user: debian
       mgmt_protocol: SSH
-    flavor: standard.small
+    flavor: standard.xsmall
 routers:
   - name: router1
     base_box:
       image: debian-12-x86_64
       mgmt_user: debian
       mgmt_protocol: SSH
-    flavor: standard.small
+    flavor: standard.tiny
 networks:
   - name: lab-network
     cidr: 10.10.30.0/24
